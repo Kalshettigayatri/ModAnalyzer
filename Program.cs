@@ -13,17 +13,13 @@ class MoodAnalyser
     {
         try
         {
-            if (message.Contains("happy", StringComparison.OrdinalIgnoreCase))
+            if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
             {
-                return "Happy Mood";
-            }
-            else if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
-            {
-                return "Sad Mood";
+                return "SAD";
             }
             else
             {
-                throw new Exception("Mood not recognized");
+                return "HAPPY";
             }
         }
         catch (Exception ex)
@@ -37,8 +33,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Enter a message: ");
-        string inputMessage = Console.ReadLine();
+        string inputMessage = "I am in Any Mood";
 
         MoodAnalyser moodAnalyser = new MoodAnalyser(inputMessage);
         string mood = moodAnalyser.AnalyseMood();
